@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "outFile": "index.js",
+    "outDir": "./built",
+    "allowJs": true,
+    "target": "es5",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["./src/**/*"],
+  "files": [
+    "src/head.js",
+    "src/amd.js",
+
+    "src/SocketConnection.js", // You can replace it with: FirebaseConnection.js || PubNubConnection.js
+    "src/MultiPeersHandler.js",
+
+    // 'adapter.js', ---- optional
+    "node_modules/detectrtc/DetectRTC.js", // npm install detectrtc
+    "src/globals.js",
+
+    "src/ios-hacks.js", // to support ios
+    "src/RTCPeerConnection.js",
+    "src/CodecsHandler.js", // to force H264 or codecs other than opus
+
+    "src/OnIceCandidateHandler.js",
+    "src/IceServersHandler.js",
+
+    "src/getUserMedia.js",
+    "src/StreamsHandler.js",
+
+    "src/TextSenderReceiver.js",
+    "src/FileProgressBarHandler.js",
+
+    "src/TranslationHandler.js",
+
+    "src/RTCMultiConnection.js"
+  ]
+}
