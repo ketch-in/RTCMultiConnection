@@ -8,11 +8,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, "src/RTCMultiConnection.ts"),
-      name: "RTCMultiConnection",
-      fileName: "RTCMultiConnection2",
+  server: {
+    open: true,
+    host: true,
+    proxy: {
+      "/socket.io": {
+        target: "ws://localhost:9001",
+        ws: true,
+      },
     },
   },
 });

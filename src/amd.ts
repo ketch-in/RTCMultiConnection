@@ -1,7 +1,7 @@
 const browserFakeUserAgent =
   "Fake/5.0 (FakeOS) AppleWebKit/123 (KHTML, like Gecko) Fake/12.3.4567.89 Fake/123.45";
 
-function amd(that) {
+(function (that) {
   if (!that) {
     return;
   }
@@ -14,13 +14,13 @@ function amd(that) {
     return;
   }
 
-  (<any>global.navigator) = {
+  global.navigator = {
     userAgent: browserFakeUserAgent,
     getUserMedia: function () {},
   };
 
   if (!global.console) {
-    global.console = {} as Console;
+    global.console = {};
   }
 
   if (typeof global.console.debug === "undefined") {
@@ -38,9 +38,9 @@ function amd(that) {
     /*global document:true */
     that.document = {};
 
-    that.document.createElement =
-      that.document.captureStream =
-      that.document.mozCaptureStream =
+    document.createElement =
+      document.captureStream =
+      document.mozCaptureStream =
         function () {
           var obj = {
             getContext: function () {
@@ -56,8 +56,8 @@ function amd(that) {
           return obj;
         };
 
-    that.document.addEventListener =
-      that.document.removeEventListener =
+    document.addEventListener =
+      document.removeEventListener =
       that.addEventListener =
       that.removeEventListener =
         function () {};
@@ -65,7 +65,7 @@ function amd(that) {
     that.HTMLVideoElement = that.HTMLMediaElement = function () {};
   }
 
-  if (typeof that.io === "undefined") {
+  if (typeof io === "undefined") {
     that.io = function () {
       return {
         on: function (eventName, callback) {
@@ -117,8 +117,4 @@ function amd(that) {
 
   /*global window:true */
   that.window = global;
-
-  return global;
-}
-
-export default amd(typeof global !== "undefined" ? global : null);
+})(typeof global !== "undefined" ? global : null);

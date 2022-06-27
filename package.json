@@ -13,13 +13,15 @@
     "url": "https://github.com/muaz-khan/RTCMultiConnection.git"
   },
   "scripts": {
-    "predev": "npm run docker-dev-build",
     "dev": "npm run docker-dev-run",
+    "local-dev-vite": "vite",
+    "local-dev-server": "npm run start",
     "docker-dev": "npm run start | vite --config vite.config.docker.js",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "start": "node server.js",
     "contrib-prerequisites": "npm install grunt@0.4.5 && npm install grunt-bump@0.7.0 && npm install grunt-cli@0.1.13 && npm install grunt-contrib-clean@0.6.0 && npm install grunt-contrib-concat@0.5.1 && npm install grunt-contrib-copy@0.8.2 && npm install grunt-contrib-uglify@0.11.0 && npm install grunt-contrib-watch@1.1.0 && npm install grunt-jsbeautifier@0.2.10 && npm install grunt-replace@0.11.0 && npm install load-grunt-tasks@3.4.0",
+    "predev": "npm run docker-dev-build",
     "docker-dev-remove": "docker rm -v rtcdevserver || true",
     "predocker-dev-build": "npm run docker-dev-remove",
     "docker-dev-build": "docker build -t rtctest -f Dockerfile.preview .",
