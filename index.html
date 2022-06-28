@@ -56,15 +56,15 @@
         <video id="video-preview" controls loop></video>
     </section>
   
-  <script src="./src/RTCMultiConnection.ts"></script>
+  <script type="module" src="/src/RTCMultiConnection.ts"></script>
   <script src="/node_modules/webrtc-adapter/out/adapter.js"></script>
   <script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
   <!-- <script src="https://www.webrtc-experiment.com/RecordRTC.js"></script> -->
   <script>
-  // recording is disabled because it is resulting for browser-crash
+	function rtc(){
+// recording is disabled because it is resulting for browser-crash
   // if you enable below line, please also uncomment above "RecordRTC.js"
   var enableRecordings = false;
-  
   var connection = new RTCMultiConnection();
   
   // https://www.rtcmulticonnection.org/docs/iceServers/
@@ -368,6 +368,14 @@
   
       document.getElementById('broadcast-viewers-counter').innerHTML = 'Number of broadcast viewers: <b>' + event.numberOfBroadcastViewers + '</b>';
   };
+	}
+  const interval = setInterval(()=>{
+		if(RTCMultiConnection){
+			clearInterval(interval);
+			return rtc()
+		}
+		console.log("... wait")
+	}, 500)
   </script>
   
     <section class="no-mobile">

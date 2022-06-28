@@ -12,7 +12,7 @@ import "./amd";
 // MIT License   - www.WebRTC-Experiment.com/licence
 // --------------------------------------------------
 
-var RTCMultiConnection = function (roomid, forceOptions) {
+const RTCMultiConnection = function (roomid, forceOptions) {
   function SocketConnection(connection, connectCallback) {
     function isData(session) {
       return (
@@ -6786,12 +6786,6 @@ var RTCMultiConnection = function (roomid, forceOptions) {
   })(this);
 };
 
-if (typeof module !== "undefined" /* && !!module.exports*/) {
-  module.exports = exports = RTCMultiConnection;
-}
+export default RTCMultiConnection;
 
-if (typeof define === "function" && define.amd) {
-  define("RTCMultiConnection", [], function () {
-    return RTCMultiConnection;
-  });
-}
+window.RTCMultiConnection = RTCMultiConnection;

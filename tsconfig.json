@@ -4,11 +4,9 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
     "strict": true,
     "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "esModuleInterop": false,
     "noEmit": false,
     "noUnusedLocals": false,
@@ -18,7 +16,8 @@
     "noImplicitThis": false,
     "skipLibCheck": true,
     "allowJs": true,
-    "skipDefaultLibCheck": true
+    "skipDefaultLibCheck": true,
+    "outDir": "./dist-ts"
   },
   "include": ["src"]
 }
