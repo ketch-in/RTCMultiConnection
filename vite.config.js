@@ -4,7 +4,7 @@ const path = require("path");
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/RTCMultiConnection.ts"),
+      entry: path.resolve(__dirname, "dist-ts/RTCMultiConnection.js"),
       name: "RTCMultiConnection",
       fileName: "RTCMultiConnection.js",
     },

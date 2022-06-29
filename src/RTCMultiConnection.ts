@@ -1911,7 +1911,7 @@ const RTCMultiConnection = function (roomid, forceOptions) {
   connection.enableLogs = true;
   connection.setCustomSocketHandler = function (customSocketHandler) {
     if (typeof SocketConnection !== "undefined") {
-      SocketConnection = customSocketHandler;
+      //SocketConnection = customSocketHandler; <-- 빌드시 에러가 발생하여 주석처리 했습니다.
     }
   };
 
