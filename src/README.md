@@ -1,5 +1,17 @@
 # TS Project
 
+## 작업 가이드
+
+1. 터미널을 두개 띄웁니다.
+
+2. 1번 터미널에서 `npm run local-dev-server`를 입력 후 엔터를 누릅니다.
+
+3. 2번 터미널에서 `npm run local-dev-vite`를 입력 후 엔터를 누릅니다.
+
+4. src 내에 있는 ts 파일을 작업 후 `localhost:3000` 에서 `Open or Join Broadcast` 버튼을 통해 화면이 출력되는 지 확인합니다.
+
+5. 화면이 정상적으로 출력된다면 문제 없이 동작하는 것입니다!
+
 ## CLI
 
 ### dev
