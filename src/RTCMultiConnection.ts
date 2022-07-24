@@ -5,7 +5,7 @@ import CodecsHandler from "./CodecsHandler";
 import setCordovaAPIs from "./ios-hacks";
 import SocketConnection from "./SocketConnection";
 import IceServersHandler from "./IceServersHandler";
-import TranslationHandler from "./TranslationHandler";
+import TranslationHandler from "./done/TranslationHandler";
 import getUserMediaHandler from "./done/getUserMediaHandler";
 import FileProgressBarHandler from "./FileProgressBarHandler";
 
