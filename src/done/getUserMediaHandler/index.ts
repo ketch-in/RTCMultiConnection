@@ -26,7 +26,7 @@ function getUserMediaHandler(options: UserMediaHandlerOptions) {
 
   const idInstance = JSON.stringify(options.localMediaConstraints);
 
-  function streaming(stream: MediaStream, returnBack?: boolean) {
+  function streaming(stream: MediaStream) {
     setStreamType(options.localMediaConstraints, stream);
 
     const streamEndedEvent = stream.oninactive ? "inactive" : "ended";
@@ -43,10 +43,21 @@ function getUserMediaHandler(options: UserMediaHandlerOptions) {
       },
       false
     );
+
+    currentUserMediaRequest.streams[idInstance] = {
+      stream: stream,
+    };
+    currentUserMediaRequest.mutex = false;
+
+    if (currentUserMediaRequest.queueRequests.length) {
+      getUserMediaHandler(currentUserMediaRequest.queueRequests.shift() as UserMediaHandlerOptions);
+    }
+
+    options.onGettingLocalMedia(stream);
   }
 
   if (currentUserMediaRequest.streams[idInstance]) {
-    streaming(currentUserMediaRequest.streams[idInstance].stream, true);
+    streaming(currentUserMediaRequest.streams[idInstance].stream);
   } else {
     if (options.localMediaConstraints.isScreen === true) {
       navigator.mediaDevices
