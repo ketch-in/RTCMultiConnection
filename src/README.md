@@ -1,44 +1,42 @@
-# RTCMultiConnection for TS Project
+# TS Project
 
-- 특정 부분 작업이 되었을 경우 본인이 직접 수정부탁드립니다.
+## 작업 가이드
 
-## 논의 사항
+1. 터미널을 두개 띄웁니다.
 
-- 기존 프로젝트는 하나의 connection 객체에 기능을 추가하며 확장하는 형태로, 기존 구조로 TypeScript로 전환하기에는 어려움이 있다고 생각합니다.
-- 아직 프로젝트 구조가 정의된 상태가 아니므로 프로젝트 구조에 대해 언제든지 의견 부탁드립니다.
-- 원본 파일은 ./dev 폴더에 위치하며, ts 작업물은 ./src 에 위치하게 됩니다.
-- 작업은 일부 시작되었지만 동작을 테스트하고 있지 않았습니다.
-- 단순히 타입만 선언하여 하는 방법도 있지만 내부적으로 로직이 정리가 되었으면 더 많은 사람들이 적절히 조합해서 쓸 수 있지 않을까하여 하나한 추가하려고 합니다.
+2. 1번 터미널에서 `npm run local-dev-server`를 입력 후 엔터를 누릅니다.
 
-## 작업 된 프로젝트
+3. 2번 터미널에서 `npm run local-dev-vite`를 입력 후 엔터를 누릅니다.
 
-### ./src/Core, ./src/Connections.ts
+4. src 내에 있는 ts 파일을 작업 후 `localhost:3000` 에서 `Open or Join Broadcast` 버튼을 통해 화면이 출력되는 지 확인합니다.
 
-- 기존 Connection 객체를 의미합니다.
-- `논의 사항`에 작성한 내용 처럼 그 구조를 그대로 사용할 수 없어 VSCode에서 채택한 방법으로 시도합니다.
+5. 화면이 정상적으로 출력된다면 문제 없이 동작하는 것입니다!
 
-1. Connection에 붙게되는 여러 기능들은 기존 파일 구조에 따라 Controller 객체로 구현합니다.
-2. Core는 Controller 객체를 추가하거나 제거할 수 있습니다.
-3. 이 라이브러리를 사용하는 곳에서는 Core를 통해 여러 Controller에 접근하거나 기능을 수행할 수 있습니다.
+## CLI
 
-- 더 자세히 설명하자면, 기존 Connection 객체는 기능을 수행하기 위한 빈 객체이며, Controller를 추가하므로써 여러 기능을 수행하는 주체가 됩니다.
+### dev
 
-### ./src/controllers
+docker에서 ts 파일을 빌드해서 예제 파일을 돌립니다.
 
-- 기존 파일에 해당하는 기능을 Controller 객체로 만들었습니다.
-- 각 항목은 ./dev/ 에 있는 것들입니다.
+```bash
+npm run dev
+```
 
-### ./src/CodecsHandler
+Go to http://localhost:3000
 
-- 이 부분 또한 ./dev/ 에 있는 것이지만, Controller 방식이 아닌 버전입니다.
-- ./src/Core와 ./src/controllers 에 작업된 부분 처럼 Controller 방식으로 진행할지, 아니면 요렇게 객체로 분리해서 진행할 지 고민하고 있습니다.
+### local-dev
 
-### ./src/FileBufferReader
+local에서 코드 수정시 실시간으로 동작여부를 확인하는 데모를 실행합니다.
+각 터미널에서 각각 실행해야합니디.
 
-- 이 부분은 ./dev/에 없으며, ./dev/에서 자주 사용하는 라이브러리 입니다.
-- 이 부분도 js로 되어 있어 ts로 변경하였습니다.
-- 기능이 동작할지는 확인이 필요한 상태입니다.
+```bash
+// 터미널 1
+npm run local-dev-vite
 
-### utils.ts
+// 터미널 2
+npm run local-dev-server
+```
 
-- 공통적으로 사용하는 유틸리티 모음입니다.
+### build
+
+해당 명령어는 준비중입니다.
