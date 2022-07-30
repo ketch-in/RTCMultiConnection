@@ -9,4 +9,10 @@ export interface RTCMultiConnection {
   language?: string;
   googKey: string;
   Translator: Translator;
+
+  // FileProgressBarHandler
+  filesContainer: any;
+  onFileStart: any;
+  onFileProgress: any;
+  onFileEnd: any;
 }

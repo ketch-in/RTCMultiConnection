@@ -7,7 +7,7 @@ import SocketConnection from "./SocketConnection";
 import IceServersHandler from "./IceServersHandler";
 import TranslationHandler from "./done/TranslationHandler";
 import getUserMediaHandler from "./done/getUserMediaHandler";
-import FileProgressBarHandler from "./FileProgressBarHandler";
+import FileProgressBarHandler from "./done/FileProgressBarHandler";
 
 import {
   isData,
