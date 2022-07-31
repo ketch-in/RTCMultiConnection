@@ -4,7 +4,7 @@ import MultiPeers from "./MultiPeersHandler";
 import CodecsHandler from "./CodecsHandler";
 import setCordovaAPIs from "./ios-hacks";
 import SocketConnection from "./SocketConnection";
-import IceServersHandler from "./IceServersHandler";
+import IceServersHandler from "./done/IceServersHandler";
 import TranslationHandler from "./done/TranslationHandler";
 import getUserMediaHandler from "./done/getUserMediaHandler";
 import FileProgressBarHandler from "./done/FileProgressBarHandler";
