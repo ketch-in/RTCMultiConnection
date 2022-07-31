@@ -15,4 +15,9 @@ export interface RTCMultiConnection {
   onFileStart: any;
   onFileProgress: any;
   onFileEnd: any;
+
+  // TextSenderReceiver
+  chunkSize: number;
+  chunkInterval: number;
+  onmessage: (e: any) => void;
 }
