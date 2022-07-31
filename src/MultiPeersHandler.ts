@@ -1,6 +1,6 @@
 import OnIceCandidateHandler from "./OnIceCandidateHandler";
 import PeerInitiator from "./RTCPeerConnection";
-import { TextSender, TextReceiver } from "./TextSenderReceiver";
+import { TextSender, TextReceiver } from "./done/TextSenderReceiver";
 import { isNull } from "./utils";
 
 function MultiPeersHandler(connection) {
