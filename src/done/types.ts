@@ -9,4 +9,16 @@ export interface RTCMultiConnection {
   language?: string;
   googKey: string;
   Translator: Translator;
+
+  // FileProgressBarHandler
+  filesContainer: HTMLElement;
+  onFileStart: (file: any) => void;
+  onFileProgress: (file: any) => void;
+  onFileEnd: (file: any) => void;
+
+
+  // TextSenderReceiver
+  chunkSize: number;
+  chunkInterval: number;
+  onmessage: (e: any) => void;
 }
